@@ -16,7 +16,7 @@ class PaymentStatus implements ConstantInterface
     const DONE = 3;
     const FAILED = 4;
 
-    public function labels(): array
+    public static function labels(): array
     {
         return [
             self::PLACED => "Placed",
