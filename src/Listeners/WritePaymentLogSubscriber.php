@@ -5,6 +5,7 @@ namespace Wandxx\Payment\Listeners;
 
 
 use Illuminate\Events\Dispatcher;
+use Wandxx\Payment\Constants\PaymentStatus;
 use Wandxx\Payment\Events\PaymentDone;
 use Wandxx\Payment\Events\PaymentFailed;
 use Wandxx\Payment\Events\PaymentOnProgress;
@@ -17,8 +18,8 @@ class WritePaymentLogSubscriber
 
         $data = [
             "payment_id" => $payment->id,
-            "description" => sprintf("changed to %s", "haha"),
-            "status" => $payment->status,
+            "description" => sprintf("changed to %s", PaymentStatus::label($payment->status)),
+            "status" => PaymentStatus::label($payment->status),
         ];
 
         $payment->logs()->create($data);
