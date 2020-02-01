@@ -1,0 +1,27 @@
+{
+  "name": "wandxx/payment",
+  "description": "payment module for wandxx",
+  "type": "laravel-plugin",
+  "require": {
+    "wandxx/support": "^1.0",
+    "envant/fireable": "^1.0"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "wandy purnomo",
+      "email": "wandypurnomo92@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Wandxx\\Payment\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": "Wandxx\\Payment\\Providers\\PaymentServiceProvider"
+    }
+  },
+  "minimum-stability": "stable"
+}
