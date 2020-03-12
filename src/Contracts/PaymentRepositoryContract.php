@@ -15,7 +15,7 @@ interface PaymentRepositoryContract extends FindableInterface
 
     public function createPayment(array $data, string $userId): Model;
 
-    public function updatePaymentStatus(int $status, string $paymentId, string $userId, ?string $failedMessage): Model;
+    public function updatePaymentStatus(int $status, Model $payment, ?string $failedMessage): Model;
 
     public function isPaymentExpired(string $paymentId, string $userId): bool;
 

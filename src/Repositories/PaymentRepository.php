@@ -65,14 +65,11 @@ class PaymentRepository implements PaymentRepositoryContract
         return $model;
     }
 
-    public function updatePaymentStatus(int $status, string $paymentId, string $userId, ?string $failedMessage): Model
+    public function updatePaymentStatus(int $status, Model $payment, ?string $failedMessage): Model
     {
         throw_if($status == PaymentStatus::FAILED && is_null($failedMessage), new BadRequestHttpException());
 
-        $model = $this->_model->newQuery()
-            ->where("user_id", $userId)
-            ->where("id", $paymentId)
-            ->firstOrFail();
+        $model = $payment;
 
         if ($status == PaymentStatus::FAILED) {
             $model->update(["status" => $status, "metadata->failed_message" => $failedMessage]);

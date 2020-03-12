@@ -20,7 +20,13 @@
   },
   "extra": {
     "laravel": {
-      "providers": "Wandxx\\Payment\\Providers\\PaymentServiceProvider"
+      "providers": [
+        "Wandxx\\Payment\\Providers\\PaymentServiceProvider",
+        "Wandxx\\Payment\\Services\\PaymentServiceServiceProvider"
+      ],
+      "aliases": {
+        "PaymentService": "Wandxx\\Payment\\Services\\PaymentServiceFacade"
+      }
     }
   },
   "minimum-stability": "stable"
